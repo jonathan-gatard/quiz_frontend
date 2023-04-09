@@ -1,3 +1,10 @@
+:root {
+  --padding-left-body: 5%;
+  --padding-navbar: 1%;
+  --background-body: #fafafa;
+  --background-table: #ffffff;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0px;
@@ -36,42 +43,79 @@ body {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #f0f0f0;
+  background-color: var(--background-body);
 }
 
 .quiz-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   min-height: 100vh;
-  background-color: #f0f0f0;
+  background-color: var(--background-body);
+  min-width: 700px;
 }
 
 h1 {
-  color: #333;
+  color: #353535;
   font-size: 32px;
   margin-bottom: 20px;
 }
 
 h2 {
   margin-top: 0px;
+  color: #353535;
 }
 
-.logout-button {
-  position: absolute;
-  top: 10px;
-  left: 20px;
-  margin: 0px;
-  z-index: 20;
+
+.navbar-container {
+  width: 100%;
+  padding: 0 var(--padding-navbar) 0 var(--padding-navbar);
+  box-sizing: border-box;
 }
 
-.uid-info {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  margin: 0px;
-  font-size: 20px;
+.navbar {
+  display: flex;
+  /*border: 1px solid #000;*/
+  justify-content: space-between;
+  align-items: center;
+  color: #353535;
+  margin: 15px;
+  min-width: 700px;
+}
+
+.navbar-title .title {
+  font-size: 2.5rem;
+}
+
+.navbar-title .by {
+  font-size: 1.5rem;
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-user div {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbar-user div span {
+  width: 100%;
+  height: 1.5rem;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar-user img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 .login-form {
@@ -85,65 +129,112 @@ h2 {
 }
 
 .quiz-form {
-  background-color: #ffffff;
-  text-align: center;
-  margin-top: 50px;
-  border-radius: 4px;
-  padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  width: 80%;
-  min-width: 700px;
+  margin: 50px 0 50px 0;
+  width: 100%;
+  padding-left: var(--padding-left-body);
+  box-sizing: border-box;
+  /*border: 1px solid blue;*/
 }
 
 .quiz-sub-form {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 80px;
   align-items: stretch;
-}
-
-.quizname-text{
-  font-weight: bold;
-  font-size: 20px;
+  flex-direction: column;
 }
 
 .group-container {
-  background-color: #243882;
-  color:white;
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: white;
+  /*border: 1px solid red;*/
+}
+
+.group-container h2 {
+  text-align: left;
+  text-shadow: 1px 1px #cccccc;
+  margin-bottom: 10px;
 }
 
 .group-sub-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 20px;
   align-items: stretch;
+  flex-direction: row;
 }
 
 .quiz-item {
   background-color: #ffffff;
-  border-radius: 8px;
-  color:black;
+  border-radius: 0.5rem;
+  width: 300px;
+  height: 200px;
+  color: black;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
+  justify-content: space-between;
+  padding: 5px 0 5px 0;
   transition: box-shadow 0.3s;
-  height: 150px;
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
   transition: all 0.1s ease-in-out;
+  color: #353535;
 }
 
 .quiz-item:hover {
   transform: translateY(1px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
   cursor: pointer;
+}
+
+.quiz-item .img-container {
+  width:100%;
+  height:100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.quiz-item img {
+  display: block;
+  height:150px;
+  width:300px;
+}
+
+.quiz-item .title {
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 0.05rem;
+  width: 100%;
+  text-align: center;
+}
+.quiz-item .not-done {
+  text-align: right;
+  font-weight: bold;
+  width: 100%;
+  font-size: 20px;
+}
+
+.quiz-item .infos .date {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.quiz-item .infos .score {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.quiz-item .infos {
+  display: flex;
+  align-content: center;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin: 5px 10px 0 0;
 }
 
 .quiz-item-disabled {
@@ -271,53 +362,60 @@ button:hover {
 }
 
 /* Table */
-.table-container {
-  overflow-x: auto;
-  max-width: 100%;
+
+.button-stats{
+  vertical-align: middle;
 }
 
 .quiz-table {
-  text-align: center;
-  background-color: #ffffff;
-  margin-top: 30px;
-  border-radius: 4px;
-  padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 100px;
-  border-radius: 4px;
-  width: 80%;
   min-width: 700px;
+  /*border: 1px solid cyan;*/
+  margin-top: 50px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: var(--padding-left-body);
+}
+
+.table-container {
+  overflow-x: auto;
+  max-width: 100%;
+  width: 100%;
+  /*border: 1px solid purple;*/
 }
 
 .quiz-table table {
-  margin-left: auto;
   margin-right: auto;
   white-space: nowrap;
   border-collapse: separate;
   border-spacing: 0;
+  background-color: var(--background-table);
 }
 
 .quiz-table td {
   border-bottom: 1px solid #bbbbbb;
   border-right: 1px solid #bbbbbb;
-  padding:4px 8px 4px 8px;
-  height:36px;
+  padding: 4px 8px 4px 8px;
+  height: 36px;
+  text-align: center;
 }
+
 .quiz-table td:hover {
-  background-color: #f3f3f3;
+  background-color: #e5e5e5;
   cursor: pointer;
 }
+
 .quiz-table th {
   border-top: 1px solid #bbbbbb;
   border-bottom: 1px solid #bbbbbb;
   border-right: 1px solid #bbbbbb;
-  padding:4px 8px 4px 8px;
+  padding: 4px 8px 4px 8px;
 }
 
 .quiz-table td:first-child {
   text-align: left;
   font-weight: bold;
-  cursor:auto;
+  cursor: auto;
+  background-color: var(--background-table);
 }
 
 .quiz-table th:first-child,
@@ -326,13 +424,12 @@ button:hover {
   border-right: 1px solid #bbbbbb;
   position: sticky;
   left: 0;
-  background-color: #ffffff;
   z-index: 1;
 }
 
 
 .quiz-table .months-to-show {
-  text-align: right;
+  text-align: left;
 }
 
 .green-score {
@@ -451,4 +548,13 @@ button:hover {
   font-size: 16px;
   font-weight: bold;
   color: #dc3545;
+}
+
+.blink {
+  animation: blinker 0.75s linear infinite;
+}
+@keyframes blinker {
+  50% {
+      opacity: 0.2;
+  }
 }

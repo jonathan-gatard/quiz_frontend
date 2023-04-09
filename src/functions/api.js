@@ -1,7 +1,10 @@
+//const API_URL = "https://quiz.neptune79.duckdns.org/api";
+const API_URL = "http://localhost:4000/api";
+
 // Fetch user group
 export async function fetchUserGroup(uid, setUserGroup, setError) {
   try {
-    const response = await fetch(`https://quiz.neptune79.duckdns.org/api/user-group/${uid}`);
+    const response = await fetch(`${API_URL}/user-group/${uid}`);
     if (response.ok) {
       const data = await response.json();
       setUserGroup(data);
@@ -17,7 +20,7 @@ export async function fetchUserGroup(uid, setUserGroup, setError) {
 // Fetch user history
 export async function fetchUserHistory(uid, setUserHistory, setError) {
   try {
-    const response = await fetch(`https://quiz.neptune79.duckdns.org/api/history/${uid}/`);
+    const response = await fetch(`${API_URL}/history/${uid}/`);
     if (response.ok) {
       const data = await response.json();
       setUserHistory(data);
@@ -33,7 +36,7 @@ export async function fetchUserHistory(uid, setUserHistory, setError) {
 // Fetch quiz infos
 export async function fetchQuizDataInfos(groupId, userId, setQuizDataInfos, setError) {
   try {
-    const response = await fetch(`https://quiz.neptune79.duckdns.org/api/quiz-infos/${groupId}/${userId}`);
+    const response = await fetch(`${API_URL}/quiz-infos/${groupId}/${userId}`);
     if (response.status === 200) {
       const quizData = await response.json();
       setQuizDataInfos(quizData);
@@ -52,7 +55,7 @@ export async function fetchQuizDataInfos(groupId, userId, setQuizDataInfos, setE
 export async function fetchQuizDataResult(userId, quizId, period, setQuizDataResult, setError) {
   try {
     const periodEncoded = encodeURIComponent(period);
-    const response = await fetch(`https://quiz.neptune79.duckdns.org/api/quiz-data/${userId}/${quizId}/${periodEncoded}`);
+    const response = await fetch(`${API_URL}/quiz-data/${userId}/${quizId}/${periodEncoded}`);
     if (response.status === 200) {
       const quizData = await response.json();
       setQuizDataResult(quizData);
@@ -68,7 +71,7 @@ export async function fetchQuizDataResult(userId, quizId, period, setQuizDataRes
 // Fetch quiz questions
 export async function fetchQuizQuestions(quizId, setQuizQuestions, setError) {
   try {
-    const response = await fetch(`https://quiz.neptune79.duckdns.org/api/quiz-questions/${quizId}`);
+    const response = await fetch(`${API_URL}/quiz-questions/${quizId}`);
     if (response.status === 200) {
       const quizQuestions = await response.json();
       setQuizQuestions(quizQuestions);
@@ -84,7 +87,7 @@ export async function fetchQuizQuestions(quizId, setQuizQuestions, setError) {
 //Save results of Quiz
 export async function saveResult(userId, quizId, score, result) {
   try {
-    const response = await fetch('https://quiz.neptune79.duckdns.org/api/save', {
+    const response = await fetch(`${API_URL}/save`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
