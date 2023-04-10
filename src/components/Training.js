@@ -16,6 +16,7 @@ export function Training({ uid }) {
     const { data: userHistory, loading: userHistoryLoading, error: userHistoryError } = useFetch(fetchUserHistory, [uid], refetchUserHistory);
   
     const triggerRefetchUserHistory = () => {
+      console.log("triggedUpdateHistory");
       setRefetchUserHistory(prevState => !prevState);
     };
   
@@ -52,6 +53,7 @@ export function Training({ uid }) {
     const { data: quizDataInfos, loading: quizDataInfosLoading, error: quizDataInfosError } = useFetch(fetchQuizDataInfos, [groupId, userId], updateQuiz);
   
     const triggerSetUpdateQuiz = () => {
+      console.log("triggedUpdateQuiz");
       setUpdateQuiz(prevState => !prevState);
     };
 

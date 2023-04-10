@@ -1,5 +1,5 @@
-//const API_URL = "https://quiz.neptune79.duckdns.org/api";
-const API_URL = "http://localhost:4000/api";
+const API_URL = "https://quiz.neptune79.duckdns.org/api";
+//const API_URL = "http://localhost:4000/api";
 
 // Fetch user group
 export async function fetchUserGroup(uid, setUserGroup, setError) {
